@@ -69,7 +69,7 @@ function unknownCommand(c){
 function hello(){
   console.log('hello!')
 }
-
+//  type "help" command to see the all comand u can use it 
 function help (){
   console.log('Available commands:');
   console.log('  command1: Description of command1');
