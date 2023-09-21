@@ -53,8 +53,10 @@ function onDataReceived(text) {
   }else if (text.startsWith('add ')) {
     const taskToAdd = text.substring(4).trim();
     addTask(taskToAdd);
-  }
-  else{
+  }else if (text.startsWith('remove')) {
+    const indexToRemove = parseInt(text.substring(7).trim()) - 1;
+    removeTask(indexToRemove);
+  }else{
     unknownCommand(text);
   }
 }
@@ -91,7 +93,10 @@ function help (){
   hello (name)
   exit
   quit
-  help`)
+  help
+  add
+  remove
+  list`)
 };
 
 /**
@@ -124,5 +129,13 @@ function addTask(task) {
     console.log(`Task "${task}" added.`);
   } else {
     console.log('Error: Please provide a task to add.');
+  }
+}
+function removeTask() {
+  if (tasks.length > 0) {
+    const removedTask = tasks.pop();
+    console.log(`Removed last task: "${removedTask}"`);
+  } else {
+    console.log('Error: No tasks available to remove.');
   }
 }
