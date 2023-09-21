@@ -80,9 +80,12 @@ function hello(text){
 }
 //  type "help" command to see the all comand u can use it 
 function help (){
-  console.log('Available commands:');
-  console.log('  command1: Description of command1');
-  console.log('  command2: Description of command2');
+  console.log(`Available commands :
+  hello 
+  hello (name)
+  exit
+  quit
+  help`)
 };
 
 /**
