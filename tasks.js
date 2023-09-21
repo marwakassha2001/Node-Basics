@@ -50,6 +50,9 @@ function onDataReceived(text) {
   }
   else if (text === 'list\n'){
     listTasks();
+  }else if (text.startsWith('add ')) {
+    const taskToAdd = text.substring(4).trim();
+    addTask(taskToAdd);
   }
   else{
     unknownCommand(text);
@@ -103,15 +106,23 @@ function quit(){
 
 // The following line starts the application
 startApp("Marwa Kassha")
-
-const  tasks = ['task1', 'task2'];
+const tasks =[];
 function listTasks() {
   if (tasks.length === 0) {
     console.log('No tasks available.');
   } else {
     console.log('Task List:');
     tasks.forEach((task, index) => {
-      console.log(` ${task}`);
+      console.log(`${index + 1}. ${task}`);
     });
+  }
+}
+
+function addTask(task) {
+  if (task) {
+    tasks.push(task);
+    console.log(`Task "${task}" added.`);
+  } else {
+    console.log('Error: Please provide a task to add.');
   }
 }
