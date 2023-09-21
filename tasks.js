@@ -39,6 +39,9 @@ function onDataReceived(text) {
   if (text === 'quit\n' || text === 'exit\n') {
     quit();
   }
+  else if (text === "hello\n") {
+    console.log("Hello!");
+  }
   else if(text.startsWith("hello")){
     hello(text);
   }
