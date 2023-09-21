@@ -48,6 +48,9 @@ function onDataReceived(text) {
   else if (text === 'help\n'){
     help();
   }
+  else if (text === 'list\n'){
+    listTasks();
+  }
   else{
     unknownCommand(text);
   }
@@ -75,7 +78,7 @@ function hello(text){
   text = text.replace('\n','').trim();
   const words = text.split(' ');
   const command = words[0];
-  let name = words.slice(1);
+  let name = words.slice(1).join(' ');
   console.log(`Hello ${name}`)
 }
 //  type "help" command to see the all comand u can use it 
@@ -100,3 +103,15 @@ function quit(){
 
 // The following line starts the application
 startApp("Marwa Kassha")
+
+const  tasks = ['task1', 'task2'];
+function listTasks() {
+  if (tasks.length === 0) {
+    console.log('No tasks available.');
+  } else {
+    console.log('Task List:');
+    tasks.forEach((task, index) => {
+      console.log(` ${task}`);
+    });
+  }
+}
